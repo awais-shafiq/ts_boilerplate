@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: goku
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    restart: always
+    ports:
+      - '5432:5432'
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+
+  backend:
+    build: backend/goku/
+    container_name: goku
+    command: sh docker-entrypoint.sh
+    ports:
+      - $GOKU_PORT:$GOKU_PORT
+    restart: always
+    depends_on:
+      - postgres
+    environment:
+      JWT_SECRET: $JWT_SECRET
+      PORT: $GOKU_PORT
+      POSTGRES_HOST: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: goku
