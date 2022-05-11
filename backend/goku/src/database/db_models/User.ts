@@ -11,6 +11,7 @@ export default class User extends Model {
 	last_name!: string;
 	email!: string;
 	phone!: string;
+	tenant_id!: string;
 	created_at!: string;
 	updated_at!: string;
 
@@ -25,8 +26,11 @@ export default class User extends Model {
 			id: { type: 'string' },
 			first_name: { type: 'string' },
 			last_name: { type: 'string' },
+			tenant_id: { type: 'string' },
 			email: { type: 'string' },
-			phone: { type: 'string' }
+			phone: { type: 'string' },
+			created_at: { type: ['string', 'null'], default: new Date().toISOString() },
+			updated_at: { type: ['string', 'null'], default: new Date().toISOString() }
 		},
 	};
 
@@ -47,7 +51,6 @@ export default class User extends Model {
 	$beforeInsert(): void {
 
 		this.id = `user_${Utilities.getRandomId()}`;
-
 	}
 
 }

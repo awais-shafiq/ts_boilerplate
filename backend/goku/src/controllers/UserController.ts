@@ -11,10 +11,21 @@ export default {
 
 			console.log(authUser, data);
 
-			const user = await User.query().insert({ ...data, id: authUser.id }).withGraphFetched('tenant');
-			
+			const user = await User.query()
+				.insertGraph({
+
+					tenant: {
+						// '#ref': 'tenant',
+						// id: authUser.tenant_id
+					},
+					...data,
+					// id: authUser.id,
+					// tenant_id: authUser.tenant_id
+
+				}).withGraphFetched('tenant');
+
 			console.log(user, user.tenant?.id);
-			
+
 			return { isOK: true, statusCode: StatusCode.CREATED, data: user };
 
 		} catch (err) {
