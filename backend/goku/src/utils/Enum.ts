@@ -5,3 +5,13 @@ export enum StatusCode {
 	INTERNAL_SERVER_ERROR = 500
 
 }
+
+export enum DefaultQuery {
+
+	OFFSET = 0,
+	LIMIT = 50,
+	ORDER_BY = 'id',
+	SORT = 'ASC',
+	EXPAND = ''
+
+}

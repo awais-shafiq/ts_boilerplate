@@ -1,10 +1,4 @@
-// export enum StatusCode {
-
-// 	SUCCESS = 200,
-// 	CREATED = 201,
-// 	INTERNAL_SERVER_ERROR = 500
-
-// }
+import { OrderByDirection } from 'objection';
 
 /**
  * Controller Response type declaration
@@ -16,23 +10,16 @@ export type ResponseData = {
 	data?: object
 }
 
-// export type Locals = ControllerResponse
 
-// export type User = {
+export type PathParams = {
+	id?: string
+}
 
-// 	id: number,
-// 	first_name: string,
-// 	last_name: string,
-// 	email: string,
-// 	phone: string,
-// 	tenant: Tenant
-
-// }
-
-// export type Tenant = {
-// 	id: number,
-// 	name: string,
-// 	domain: string
-// 	users: User[]
-// }
+export type QueryParams = {
+	limit?: number,
+	offset?: number,
+	order_by?: string,
+	sort?: OrderByDirection,
+	expand?: string,
+}
 

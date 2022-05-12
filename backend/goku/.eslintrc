@@ -28,7 +28,10 @@
 			}
 		],
 		"@typescript-eslint/no-explicit-any": [
-			"error"
+			"off", 
+			{
+				
+			}
 		],
 		"@typescript-eslint/explicit-function-return-type": [
 			"error",

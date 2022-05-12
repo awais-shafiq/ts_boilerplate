@@ -11,8 +11,6 @@ interface AuthUser {
 	role_scopes: RoleScope[]
 }
 
-
-
 declare namespace Express {
 	export interface Request {
 		user: AuthUser

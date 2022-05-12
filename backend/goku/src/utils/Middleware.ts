@@ -8,7 +8,7 @@ const logRequests = (req: Request, res: Response, next: NextFunction): void => {
 	// 	'\x1b[34m', `ip : ${req.ip}`, '         ', `method : ${req.method}`, '         ', `endpoint : ${req.path}`
 	// );
 
-	console.log({ ip: req.ip, method: req.method, endpoint: req.path });
+	console.log('\x1b[34m', { ip: req.ip, method: req.method, endpoint: req.path });
 
 	next();
 
