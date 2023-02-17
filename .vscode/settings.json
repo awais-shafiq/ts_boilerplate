@@ -1,0 +1,15 @@
+{
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.fontFamily": "Cascadia Code, Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontLigatures": true,
+	"editor.formatOnSave": true,
+	"prettier.singleQuote": true,
+	"prettier.semi": true,
+	"prettier.printWidth": 145,
+	"prettier.tabWidth": 4,
+	"prettier.trailingComma": "all",
+	"prettier.proseWrap": "never",
+	"prettier.bracketSpacing": true,
+	"prettier.jsxSingleQuote": true,
+	"workbench.colorTheme": "Atom One Dark",
+}
